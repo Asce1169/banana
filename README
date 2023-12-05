@@ -1,0 +1,123 @@
+parse was created by Ariel Villanueva Jr(822661691) on 4 DEC 2023 for CS530, Fall 2023 for Assignment 3. The program was submitted utilizing Edoras account: cssc2607
+
+DESCRIPTION:
+The project consists of the following files: 
+bison2.y
+lexy.l
+makefile
+test.txt
+README
+
+The program is written in c and can be compiled with the ‘make’ command. The program utilizes flex and bison to decide if each line qualifies as an assignment or an expression. 
+
+PROPER COMMAND LINE ARGUMENT:
+./parse <filename>
+
+OUTPUT FOR ./parse test.txt:
+
+good = one1 + two2 - three3 / four4 ; 
+Assignment Detected 
+Result: Pass
+
+good = one1 / two2 * three3 ; 
+Assignment Detected 
+Result: Pass
+
+good = one1 * two2 + three3 ; 
+Assignment Detected 
+Result: Pass
+
+good = ONE + twenty - three3 ; 
+Assignment Detected 
+Result: Pass
+
+good = old * thirty2 / b567 ; 
+Assignment Detected 
+Result: Pass
+
+good * i8766e98e + bignum 
+Expression Detected
+Result: Pass
+
+good  a4 + bignum 
+Expression Detected
+Result: Pass
+
+good * one - two2 / three3 
+Expression Detected
+Result: Pass
+
+good = four4 * two2 * three3 ; 
+Assignment Detected 
+Result: Pass
+
+good * ( one + two ) * three 
+Expression Detected
+Result: Pass
+
+good * one + two * three / four - five + six 
+Expression Detected
+Result: Pass
+
+good * one - two2 / three3 
+Expression Detected
+Result: Pass
+
+Error: syntax error
+bad = = one1 + two2 - three3 / four4 ; 
+Improper assignment structure
+Result: Fail
+
+bad = one1 + two2 - three3 / four4 
+Error: syntax error
+Improper expression structure
+Result: Fail
+
+Error: syntax error
+bad = 1 + - two2 - three3 / four4 ; 
+Improper assignment structure
+Result: Fail
+
+Error: syntax error
+bad = one1 + two2 three3 / four4 ; 
+Improper assignment structure
+Result: Fail
+
+bad = one1 + 24 - three3 
+Error: syntax error
+Improper expression structure
+Result: Fail
+
+Error: syntax error
+bad + - delta 
+Improper expression structure
+Result: Fail
+
+Error: syntax error
+bad + - delta 
+Improper expression structure
+Result: Fail
+
+Error: syntax error
+bad / min = fourth ; 
+Improper assignment structure
+Result: Fail
+
+Error: syntax error
+bad = a b 
+Improper expression structure
+Result: Fail
+
+Error: syntax error
+bad * 2 two + 3 three 
+Improper expression structure
+Result: Fail
+
+ERRORS CAUGHT:
+There must be at least one file passed and any un-openable / non-existent files will throw runtime errors.
+
+BUGS/ISSUES:
+Errors are caught, but I was not able to figure out how to let people know exactly what they did wrong beyond that they had a syntax error on a specific line.
+
+LESSONS LEARNED:
+An introductory knowledge of flex and bison was gained as well as a better understanding of macros and lexical analysis. 
